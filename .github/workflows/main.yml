@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "src/Ebel.ValidationKit/**"
+      - "tests/Ebel.ValidationKit.Tests/**"
 
 jobs:
   build-and-deploy:
@@ -21,7 +24,7 @@ jobs:
         run: dotnet build src/Ebel.ValidationKit --configuration Release
 
       - name: Test
-        run: dotnet test
+        run: dotnet test tests/Ebel.ValidationKit.Tests
 
       - name: Create the package
         run: dotnet pack src/Ebel.ValidationKit --configuration Release
