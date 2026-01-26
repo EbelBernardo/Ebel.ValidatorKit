@@ -1,6 +1,6 @@
-using Ebel.ValidatorKit.Results;
+using Ebel.ValidationKit.Results;
 
-namespace Ebel.ValidatorKit.Validators;
+namespace Ebel.ValidationKit.Validators;
 
 public static class CpfValidator
 {

@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ebel.ValidationKit\Ebel.ValidationKit.csproj" />
+    <ProjectReference Include="..\..\src\Ebel.ValidationKit\Ebel.ValidationKit.csproj" />
   </ItemGroup>
 
 </Project>

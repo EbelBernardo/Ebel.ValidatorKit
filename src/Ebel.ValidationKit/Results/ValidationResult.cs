@@ -1,4 +1,4 @@
-namespace Ebel.ValidatorKit.Results;
+namespace Ebel.ValidationKit.Results;
 
 public class ValidationResult()
 {

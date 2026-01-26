@@ -1,4 +1,4 @@
-using Ebel.ValidatorKit.Results;
+using Ebel.ValidationKit.Results;
 
 namespace Ebel.ValidatorKit.Tests.Results;
 
