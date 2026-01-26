@@ -11,6 +11,9 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - "src/Ebel.ValidationKit/**"
+      - "tests/Ebel.ValidationKit.Tests/**"
 
 jobs:
   build-and-deploy:
