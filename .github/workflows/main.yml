@@ -18,13 +18,13 @@ jobs:
           dotnet-version: "9.0.x"
 
       - name: Build with .NET
-        run: dotnet build src/EbelValidationKit --configuration Release
+        run: dotnet build src/Ebel.ValidationKit --configuration Release
 
       - name: Test
         run: dotnet test
 
       - name: Create the package
-        run: dotnet pack src/EbelValidationKit --configuration Release
+        run: dotnet pack src/Ebel.ValidationKit --configuration Release
 
       - name: Publish
         run: dotnet nuget push "src/Ebel.ValidationKit/bin/Release/*.nupkg" -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json
