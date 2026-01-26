@@ -51,7 +51,7 @@ app.MapPost("/name/validator", (NameRequest request) =>
 {
     var result = request.Name.ValidateName();
 
-    if(!result.IsValid)
+    if (!result.IsValid)
         return Results.BadRequest(result);
 
     return Results.Ok(result);
