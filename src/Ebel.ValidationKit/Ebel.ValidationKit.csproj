@@ -7,7 +7,7 @@
     <RootNamespace>Ebel.ValidationKit</RootNamespace>
 
     <PackageId>Ebel.ValidatorKit</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <PackageDescription>Package to validate CPF and Name</PackageDescription>
     <RepositoryUrl>https://github.com/EbelBernardo/Ebel.ValidatorKit</RepositoryUrl>
     <PackageProjectUrl>https://github.com/EbelBernardo/Ebel.ValidatorKit</PackageProjectUrl>
