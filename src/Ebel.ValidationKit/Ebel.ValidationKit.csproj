@@ -19,7 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\Media\icon.png" Pack="true" PackagePath="\" />
+    <None Include="../../Media/icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
