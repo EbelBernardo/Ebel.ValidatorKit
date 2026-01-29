@@ -6,12 +6,15 @@ public static class CpfValidator
 {
     public static ValidationResult ValidateCpf(this string cpf)
     {
-        if (string.IsNullOrEmpty(cpf))
+        if (string.IsNullOrWhiteSpace(cpf))
             return ValidationResult.Fail("CPF is required");
 
         var cleaned = new string(cpf.Where(char.IsDigit).ToArray());
         if (cleaned.Length != 11)
             return ValidationResult.Fail("CPF should have 11 digits");
+
+        if (cleaned.All(c => c == cleaned[0]))
+            return ValidationResult.Fail("Invalid CPF");
 
         return ValidationResult.Success();
     }
