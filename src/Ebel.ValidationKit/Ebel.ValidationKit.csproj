@@ -7,8 +7,8 @@
     <RootNamespace>Ebel.ValidationKit</RootNamespace>
 
     <PackageId>Ebel.ValidatorKit</PackageId>
-    <Version>1.0.2</Version>
-    <PackageDescription>Package to validate CPF and Name</PackageDescription>
+    <Version>1.1.0</Version>
+    <PackageDescription>Lightweight validation library for CPF and Name with format and domain rules.</PackageDescription>
     <RepositoryUrl>https://github.com/EbelBernardo/Ebel.ValidatorKit</RepositoryUrl>
     <PackageProjectUrl>https://github.com/EbelBernardo/Ebel.ValidatorKit</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -16,6 +16,7 @@
     <PackageTags>validation;cpf;name;validator</PackageTags>
     <Title>Ebel.ValidatorKit</Title>
     <Summary>Package to validate CPF and Name</Summary>
+
   </PropertyGroup>
 
   <ItemGroup>
