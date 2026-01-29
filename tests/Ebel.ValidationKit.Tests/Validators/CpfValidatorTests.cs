@@ -24,6 +24,7 @@ public sealed class CpfValidatorTests
         var result = cpf.ValidateCpf();
 
         Assert.IsFalse(result.IsValid);
+        Assert.AreEqual("CPF should have 11 digits", result.Message);
     }
 
     [TestMethod]
@@ -34,5 +35,16 @@ public sealed class CpfValidatorTests
         var result = cpf.ValidateCpf();
 
         Assert.IsTrue(result.IsValid);
+    }
+
+    [TestMethod]
+    public void Should_Fail_When_Cpf_Has_Only_Repeated_Digits()
+    {
+        string cpf = "11111111111";
+
+        var result = cpf.ValidateCpf();
+
+        Assert.IsFalse(result.IsValid);
+        Assert.AreEqual("Invalid CPF", result.Message);
     }
 }
