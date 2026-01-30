@@ -25,26 +25,61 @@ public sealed class CpfValidatorTests
 
         Assert.IsFalse(result.IsValid);
         Assert.AreEqual("CPF should have 11 digits", result.Message);
-    }
 
-    [TestMethod]
-    public void Should_Pass_When_Cpf_Has_11_Digits()
-    {
-        string cpf = "12312312312";
+        cpf = "123123123123123";
 
-        var result = cpf.ValidateCpf();
+        result = cpf.ValidateCpf();
 
-        Assert.IsTrue(result.IsValid);
+        Assert.IsFalse(result.IsValid);
+        Assert.AreEqual("CPF should have 11 digits", result.Message);
     }
 
     [TestMethod]
     public void Should_Fail_When_Cpf_Has_Only_Repeated_Digits()
     {
-        string cpf = "11111111111";
+        string[] invalidCpfs =
+        {
+            "00000000000",
+            "11111111111",
+            "22222222222",
+            "99999999999"
+        };
+
+        foreach (var cpf in invalidCpfs)
+        {
+            var result = cpf.ValidateCpf();
+
+            Assert.IsFalse(result.IsValid);
+            Assert.AreEqual("Invalid CPF", result.Message);
+        }
+    }
+
+    [TestMethod]
+    public void Should_Fail_When_Cpf_Has_Invalid_Digits()
+    {
+        var cpf = "12345678912";
 
         var result = cpf.ValidateCpf();
 
         Assert.IsFalse(result.IsValid);
         Assert.AreEqual("Invalid CPF", result.Message);
+    }
+
+    [TestMethod]
+    public void Should_Pass_When_Cpf_Is_Valid()
+    {
+        string[] validCpfs =
+        {
+            "52998224725",
+            "12345678909",
+            "11144477735"
+        };
+
+        foreach (var cpf in validCpfs)
+        {
+            var result = cpf.ValidateCpf();
+
+            Assert.IsTrue(result.IsValid);
+        }
     }
 }
