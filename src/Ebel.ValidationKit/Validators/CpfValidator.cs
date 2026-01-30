@@ -16,8 +16,9 @@ public static class CpfValidator
         if (cleaned.All(c => c == cleaned[0]))
             return ValidationResult.Fail("Invalid CPF");
 
-        if (CpfDigitCalculator.IsValidCpf(cleaned))
+        if (!CpfDigitCalculator.IsValidCpf(cleaned))
+            return ValidationResult.Fail("Invalid CPF");
 
-            return ValidationResult.Success();
+        return ValidationResult.Success();
     }
 }
