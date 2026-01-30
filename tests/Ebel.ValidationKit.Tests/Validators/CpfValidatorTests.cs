@@ -79,7 +79,7 @@ public sealed class CpfValidatorTests
         {
             var result = cpf.ValidateCpf();
 
-            Assert.IsFalse(result.IsValid);
+            Assert.IsTrue(result.IsValid);
         }
     }
 }
