@@ -2,8 +2,14 @@ using Ebel.ValidationKit;
 using Ebel.ValidationKit.Results;
 using Ebel.ValidationKit.Validators;
 using Microsoft.OpenApi.Models;
+using Microsoft.VisualBasic;
 using Microsoft.Win32.SafeHandles;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.IO.Pipelines;
+using System.Net.Sockets;
+using System.Runtime.InteropServices.Marshalling;
+using System.Xml.XPath;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,20 +47,32 @@ app.MapPost("/cpf/validator", (CpfRequest request) =>
 {
     var result = request.Cpf.ValidateCpf();
 
-    if (!result.IsValid)
-        return Results.BadRequest(result);
+    var response = new ValidationResponse
+    {
+        IsValid = result.IsValid,
+        Code = result.Code.ToString(),
+        Message = result.Message
+    };
 
-    return Results.Ok(result);
+    return result.IsValid
+        ? Results.Ok(response)
+        : Results.BadRequest(response);
 });
 
 app.MapPost("/name/validator", (NameRequest request) =>
 {
     var result = request.Name.ValidateName();
 
-    if (!result.IsValid)
-        return Results.BadRequest(result);
+    var response = new ValidationResponse
+    {
+        IsValid = result.IsValid,
+        Code = result.Code.ToString(),
+        Message = result.Message
+    };
 
-    return Results.Ok(result);
+    return result.IsValid
+        ? Results.Ok(response)
+        : Results.BadRequest(response);
 });
 
 app.Run();
