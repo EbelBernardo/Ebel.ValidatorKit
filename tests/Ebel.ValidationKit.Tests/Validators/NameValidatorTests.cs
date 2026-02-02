@@ -1,3 +1,4 @@
+using Ebel.ValidationKit.Results;
 using Ebel.ValidationKit.Validators;
 
 namespace Ebel.ValidatorKit.Test.Validators;
@@ -13,6 +14,8 @@ public sealed class NameValidatorTests
         var result = name.ValidateName();
 
         Assert.IsFalse(result.IsValid);
+        Assert.AreEqual(ValidationErrorCode.NameRequired, result.Code);
+        Assert.AreEqual("Name is required", result.Message);
     }
 
     [TestMethod]
@@ -23,6 +26,8 @@ public sealed class NameValidatorTests
         var result = name.ValidateName();
 
         Assert.IsFalse(result.IsValid);
+        Assert.AreEqual(ValidationErrorCode.NameInvalidCharacters, result.Code);
+        Assert.AreEqual("Name contains invalid characters", result.Message);
     }
 
     [TestMethod]
