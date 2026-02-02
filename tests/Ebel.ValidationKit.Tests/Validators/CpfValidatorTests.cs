@@ -1,3 +1,4 @@
+using Ebel.ValidationKit.Results;
 using Ebel.ValidationKit.Validators;
 
 namespace Ebel.ValidatorKit.Test.Validators;
@@ -13,6 +14,7 @@ public sealed class CpfValidatorTests
         var result = cpf.ValidateCpf();
 
         Assert.IsFalse(result.IsValid);
+        Assert.AreEqual(ValidationErrorCode.CpfRequired, result.Code);
         Assert.AreEqual("CPF is required", result.Message);
     }
 
@@ -24,14 +26,16 @@ public sealed class CpfValidatorTests
         var result = cpf.ValidateCpf();
 
         Assert.IsFalse(result.IsValid);
-        Assert.AreEqual("CPF should have 11 digits", result.Message);
+        Assert.AreEqual(ValidationErrorCode.CpfInvalidLength, result.Code);
+        Assert.AreEqual("CPF must contain 11 digits", result.Message);
 
         cpf = "123123123123123";
 
         result = cpf.ValidateCpf();
 
         Assert.IsFalse(result.IsValid);
-        Assert.AreEqual("CPF should have 11 digits", result.Message);
+        Assert.AreEqual(ValidationErrorCode.CpfInvalidLength, result.Code);
+        Assert.AreEqual("CPF must contain 11 digits", result.Message);
     }
 
     [TestMethod]
@@ -50,6 +54,7 @@ public sealed class CpfValidatorTests
             var result = cpf.ValidateCpf();
 
             Assert.IsFalse(result.IsValid);
+            Assert.AreEqual(ValidationErrorCode.CpfBlacklisted, result.Code);
             Assert.AreEqual("Invalid CPF", result.Message);
         }
     }
@@ -62,6 +67,7 @@ public sealed class CpfValidatorTests
         var result = cpf.ValidateCpf();
 
         Assert.IsFalse(result.IsValid);
+        Assert.AreEqual(ValidationErrorCode.CpfInvalidCheckDigit, result.Code);
         Assert.AreEqual("Invalid CPF", result.Message);
     }
 
