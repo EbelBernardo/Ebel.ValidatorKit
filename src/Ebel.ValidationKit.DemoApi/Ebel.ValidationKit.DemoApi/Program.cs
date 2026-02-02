@@ -43,7 +43,9 @@ if (app.Environment.IsDevelopment())
 {
 }
 
-app.MapPost("/cpf/validator", (CpfRequest request) =>
+var v1 = app.MapGroup("/api/v1");
+
+v1.MapPost("/cpf/validator", (CpfRequest request) =>
 {
     var result = request.Cpf.ValidateCpf();
 
@@ -59,7 +61,7 @@ app.MapPost("/cpf/validator", (CpfRequest request) =>
         : Results.BadRequest(response);
 });
 
-app.MapPost("/name/validator", (NameRequest request) =>
+v1.MapPost("/name/validator", (NameRequest request) =>
 {
     var result = request.Name.ValidateName();
 
