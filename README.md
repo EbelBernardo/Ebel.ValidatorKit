@@ -103,6 +103,10 @@ This project is free to use for educational purposes.
 
 ---
 
+## 👤 Autor
+Bernardo Ebel <br>
+[GitHub](https://github.com/EbelBernardo) | [LinkedIn](https://www.linkedin.com/in/bernardo-ebel-743831303/)
+
 ## 📌 Final Notes
 
 This project represents a practical study of creating, versioning, and distributing libraries in .NET.
